@@ -4,6 +4,14 @@ var database = [
 		username : "anish",
 		password :"hello"
 	},
+	{
+		username : "soni",
+		password : "hello"
+	},
+	{
+		username : "ram",
+		password : "what",
+	}
 ];
 
 var newsFeed = [
@@ -27,12 +35,24 @@ var passwordPrompt = prompt("enter the password");
 
 signIn(userNamePrompt, passwordPrompt);
 
+function isUserValid(username,password){
+	for(var i = 0 ; i<database.length ; i++){
+		if(username === database[i].username && password === database[i].password){
+			return true;
+		}
+	}
+	return false;	
+}
+
 
 function signIn(username, password){
-	if(username === database[0].username && password === database[0].password){
-		console.log(newsFeed);
-	}
+		if(isUserValid(username,password)){
+			console.log(newsFeed);
+		}
+	
 	else{
-		alert("sorry wrong username and password")
-	}
+		alert("sorry wrong username and password");
+		}
+
 }
+
